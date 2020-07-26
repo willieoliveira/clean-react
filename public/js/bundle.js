@@ -1217,6 +1217,30 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) *
 
 /***/ }),
 
+/***/ "./src/main/factories/http/api-url-factory.ts":
+/*!****************************************************!*\
+  !*** ./src/main/factories/http/api-url-factory.ts ***!
+  \****************************************************/
+/*! exports provided: makeApiUrl */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"makeApiUrl\", function() { return makeApiUrl; });\nconst makeApiUrl = () => {\n    return 'http://fordevs.herokuapp.com/api/login';\n};\n\n\n//# sourceURL=webpack:///./src/main/factories/http/api-url-factory.ts?");
+
+/***/ }),
+
+/***/ "./src/main/factories/http/axios-http-client-factory.ts":
+/*!**************************************************************!*\
+  !*** ./src/main/factories/http/axios-http-client-factory.ts ***!
+  \**************************************************************/
+/*! exports provided: makeAxiosHttpClient */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"makeAxiosHttpClient\", function() { return makeAxiosHttpClient; });\n/* harmony import */ var _infra_http_axios_http_client_axios_http_client__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/infra/http/axios-http-client/axios-http-client */ \"./src/infra/http/axios-http-client/axios-http-client.ts\");\n\nconst makeAxiosHttpClient = () => {\n    return new _infra_http_axios_http_client_axios_http_client__WEBPACK_IMPORTED_MODULE_0__[\"AxiosHttpClient\"]();\n};\n\n\n//# sourceURL=webpack:///./src/main/factories/http/axios-http-client-factory.ts?");
+
+/***/ }),
+
 /***/ "./src/main/factories/pages/login/login-factory.tsx":
 /*!**********************************************************!*\
   !*** ./src/main/factories/pages/login/login-factory.tsx ***!
@@ -1225,7 +1249,31 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) *
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"makeLogin\", function() { return makeLogin; });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"react\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _presentation_pages__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/presentation/pages */ \"./src/presentation/pages/index.ts\");\n/* harmony import */ var _data_usecases_authentication_remote_authentication__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/data/usecases/authentication/remote-authentication */ \"./src/data/usecases/authentication/remote-authentication.ts\");\n/* harmony import */ var _infra_http_axios_http_client_axios_http_client__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/infra/http/axios-http-client/axios-http-client */ \"./src/infra/http/axios-http-client/axios-http-client.ts\");\n/* harmony import */ var _validation_validators__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @/validation/validators */ \"./src/validation/validators/index.ts\");\n/* harmony import */ var _validation_validators_validation_builder_validation_builder__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @/validation/validators/validation-builder/validation-builder */ \"./src/validation/validators/validation-builder/validation-builder.ts\");\n\n\n\n\n\n\nconst makeLogin = () => {\n    const url = 'http://fordevs.herokuapp.com/api/login';\n    const axiosHttpClient = new _infra_http_axios_http_client_axios_http_client__WEBPACK_IMPORTED_MODULE_3__[\"AxiosHttpClient\"]();\n    const remoteAuthentication = new _data_usecases_authentication_remote_authentication__WEBPACK_IMPORTED_MODULE_2__[\"RemoteAuthentication\"](url, axiosHttpClient);\n    const validationComposite = _validation_validators__WEBPACK_IMPORTED_MODULE_4__[\"ValidationComposite\"].build([\n        ..._validation_validators_validation_builder_validation_builder__WEBPACK_IMPORTED_MODULE_5__[\"ValidationBuilder\"].field('email').required().email().build(),\n        ..._validation_validators_validation_builder_validation_builder__WEBPACK_IMPORTED_MODULE_5__[\"ValidationBuilder\"].field('password').required().min(5).build()\n    ]);\n    return (react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_presentation_pages__WEBPACK_IMPORTED_MODULE_1__[\"Login\"], { authentication: remoteAuthentication, validation: validationComposite }));\n};\n\n\n//# sourceURL=webpack:///./src/main/factories/pages/login/login-factory.tsx?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"makeLogin\", function() { return makeLogin; });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"react\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _login_validation_factory__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./login-validation-factory */ \"./src/main/factories/pages/login/login-validation-factory.ts\");\n/* harmony import */ var _main_factories_usecases_authentication_remote_authentication_factory__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/main/factories/usecases/authentication/remote-authentication-factory */ \"./src/main/factories/usecases/authentication/remote-authentication-factory.ts\");\n/* harmony import */ var _presentation_pages__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/presentation/pages */ \"./src/presentation/pages/index.ts\");\n\n\n\n\nconst makeLogin = () => {\n    return (react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_presentation_pages__WEBPACK_IMPORTED_MODULE_3__[\"Login\"], { authentication: Object(_main_factories_usecases_authentication_remote_authentication_factory__WEBPACK_IMPORTED_MODULE_2__[\"makeRemoteAuthentication\"])(), validation: Object(_login_validation_factory__WEBPACK_IMPORTED_MODULE_1__[\"makeLoginValidation\"])() }));\n};\n\n\n//# sourceURL=webpack:///./src/main/factories/pages/login/login-factory.tsx?");
+
+/***/ }),
+
+/***/ "./src/main/factories/pages/login/login-validation-factory.ts":
+/*!********************************************************************!*\
+  !*** ./src/main/factories/pages/login/login-validation-factory.ts ***!
+  \********************************************************************/
+/*! exports provided: makeLoginValidation */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"makeLoginValidation\", function() { return makeLoginValidation; });\n/* harmony import */ var _validation_validators__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/validation/validators */ \"./src/validation/validators/index.ts\");\n/* harmony import */ var _validation_validators_validation_builder_validation_builder__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/validation/validators/validation-builder/validation-builder */ \"./src/validation/validators/validation-builder/validation-builder.ts\");\n\n\nconst makeLoginValidation = () => {\n    return _validation_validators__WEBPACK_IMPORTED_MODULE_0__[\"ValidationComposite\"].build([\n        ..._validation_validators_validation_builder_validation_builder__WEBPACK_IMPORTED_MODULE_1__[\"ValidationBuilder\"].field('email').required().email().build(),\n        ..._validation_validators_validation_builder_validation_builder__WEBPACK_IMPORTED_MODULE_1__[\"ValidationBuilder\"].field('password').required().min(5).build()\n    ]);\n};\n\n\n//# sourceURL=webpack:///./src/main/factories/pages/login/login-validation-factory.ts?");
+
+/***/ }),
+
+/***/ "./src/main/factories/usecases/authentication/remote-authentication-factory.ts":
+/*!*************************************************************************************!*\
+  !*** ./src/main/factories/usecases/authentication/remote-authentication-factory.ts ***!
+  \*************************************************************************************/
+/*! exports provided: makeRemoteAuthentication */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"makeRemoteAuthentication\", function() { return makeRemoteAuthentication; });\n/* harmony import */ var _main_factories_http_axios_http_client_factory__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/main/factories/http/axios-http-client-factory */ \"./src/main/factories/http/axios-http-client-factory.ts\");\n/* harmony import */ var _main_factories_http_api_url_factory__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/main/factories/http/api-url-factory */ \"./src/main/factories/http/api-url-factory.ts\");\n/* harmony import */ var _data_usecases_authentication_remote_authentication__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/data/usecases/authentication/remote-authentication */ \"./src/data/usecases/authentication/remote-authentication.ts\");\n\n\n\nconst makeRemoteAuthentication = () => {\n    return new _data_usecases_authentication_remote_authentication__WEBPACK_IMPORTED_MODULE_2__[\"RemoteAuthentication\"](Object(_main_factories_http_api_url_factory__WEBPACK_IMPORTED_MODULE_1__[\"makeApiUrl\"])(), Object(_main_factories_http_axios_http_client_factory__WEBPACK_IMPORTED_MODULE_0__[\"makeAxiosHttpClient\"])());\n};\n\n\n//# sourceURL=webpack:///./src/main/factories/usecases/authentication/remote-authentication-factory.ts?");
 
 /***/ }),
 

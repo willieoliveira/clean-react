@@ -1,5 +1,5 @@
 import { ValidationComposite } from './validation-composite'
-import { FieldValidationSpy } from '../test/mock-field-validation'
+import { FieldValidationSpy } from '@/validation/test'
 import faker from 'faker'
 
 type SutTypes = {
@@ -32,7 +32,7 @@ describe('ValidationComposite', () => {
     expect(error).toBe(errorMessage)
   })
 
-  test('Should return error if any validation fails', () => {
+  test('Should return falsy if there is no validation', () => {
     const fieldName = faker.database.column()
     const { sut } = makeSut(fieldName)
     const error = sut.validate(fieldName, faker.random.word())

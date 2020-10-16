@@ -1,1 +1,2 @@
 [![Build Status](https://travis-ci.org/willieoliveira/clean-react.svg?branch=main)](https://travis-ci.org/willieoliveira/clean-react)
+[![Coverage Status](https://coveralls.io/repos/github/willieoliveira/clean-react/badge.svg?branch=master)](https://coveralls.io/github/willieoliveira/clean-react?branch=master)
